@@ -1,5 +1,4 @@
 Messages = new Meteor.Collection('messages');
-Mouses = new Meteor.Collection('mouses');
 
 if (Meteor.isClient)
 {
