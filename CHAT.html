@@ -1,0 +1,49 @@
+<head>
+  <title>CHAT</title>
+</head>
+
+<body>
+  {{> form}}
+  {{> mouses}}
+  {{> messages}}
+</body>
+
+<template name="form" width="100%">
+<p>
+<strong>Formular:</strong>
+<input type="text" id="name" placeholder="Nume">
+<input type="text" id="message" placeholder="Mesaj">
+<script type="text/javascript">
+function post()
+{
+	document.onload = function()
+	{
+		var nume = document.getElementById('nume');
+		var mesaj = document.getElementById('mesage');
+		Messages.insert({name: nume.value, message: mesaj, time: Date.now()});
+	}
+}
+</script>
+<input type="submit" id="submit" value="Trimite" onclick="post();">
+</p>
+</template>
+
+<template name="mouse">
+<p><strong>{{ennabled}}</strong></p>
+</template>
+
+<template name="mouses">
+{{#each mouses}}
+{{> mouse}}
+{{/each}}
+</template>
+
+<template name="message">
+<p><strong>{{name}}:</strong>{{message}}</p>
+</template>
+
+<template name="messages">
+{{#each messages}}
+{{> message}}
+{{/each}}
+</template>
